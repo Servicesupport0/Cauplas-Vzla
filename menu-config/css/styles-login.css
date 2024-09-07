@@ -1,0 +1,168 @@
+/* Importación de fuentes desde Google Fonts y Font Awesome para los iconos */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,700);
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+
+/* Establecer la altura completa para el body y html */
+body, html {
+  height: 100%;
+}
+
+/* Configuración del body: tipo de letra y estructura de flexbox */
+body {
+  font-family: 'Open Sans'; /* Fuente principal */
+  font-weight: 100; /* Peso de la fuente */
+  display: flex; /* Usar flexbox para centrar el contenido */
+  overflow: hidden; /* Ocultar desbordamientos */
+}
+
+/* Estilos para los elementos de entrada (input) */
+input {
+  /* Estilos para los placeholders (textos de ayuda) en diferentes navegadores */
+  ::-webkit-input-placeholder {
+     color: rgba(255,255,255,0.7); /* Color para navegadores basados en WebKit */
+  }
+  ::-moz-placeholder {
+     color: rgba(255,255,255,0.7); /* Color para Mozilla */
+  }
+  :-ms-input-placeholder {  
+     color: rgba(255,255,255,0.7); /* Color para Internet Explorer */
+  }
+  
+  /* Estilos al enfocar el input */
+  &:focus {
+    outline: 0 transparent solid; /* Eliminar contorno al enfocar */
+    
+    /* Cambiar color del placeholder al enfocar el input */
+    ::-webkit-input-placeholder {
+     color: rgba(0,0,0,0.7);
+    }
+    ::-moz-placeholder {
+       color: rgba(0,0,0,0.7);  
+    }
+    :-ms-input-placeholder {  
+       color: rgba(0,0,0,0.7);  
+    }
+  }
+}
+
+/* Estilo para el formulario de inicio de sesión */
+.login-form {
+  /* Configuración del fondo y sombra del formulario (comentado por ahora) */
+  /* background: #222; */
+  /* box-shadow: 0 0 1rem rgba(0,0,0,0.3); */
+  min-height: 10rem; /* Altura mínima del formulario */
+  margin: auto; /* Centrar el formulario en la página */
+  max-width: 50%; /* Ancho máximo del formulario */
+  padding: .5rem; /* Relleno interno */
+}
+
+
+/* Estilo para el texto del inicio de sesión */
+.login-text {
+  color: white; /* Color del texto */
+  font-size: 1.5rem; /* Tamaño de la fuente */
+  margin: 0 auto; /* Margen automático para centrar */
+  max-width: 50%; /* Ancho máximo del texto */
+  padding: .5rem; /* Relleno interno */
+  text-align: center; /* Centrar el texto */
+
+  /* Color de los iconos de Font Awesome */
+  .fa-stack-1x {
+    color: black;
+  }
+}
+
+
+/* Estilos para los campos de nombre de usuario y contraseña */
+.login-username, .login-password {
+  background: transparent; /* Fondo transparente */
+  border: 0 solid; /* Sin borde */
+  border-bottom: 1px solid rgba(white, .5); /* Borde inferior semitransparente */
+  color: white; /* Color del texto */
+  display: block; /* Mostrar como bloque */
+  margin: 1rem; /* Margen alrededor */
+  padding: .5rem; /* Relleno interno */
+  transition: 250ms background ease-in; /* Transición suave para el fondo */
+  width: calc(100% - 3rem); /* Calcular ancho del input */
+
+  /* Estilo al enfocar el campo */
+  &:focus {
+    background: white; /* Cambiar fondo a blanco al enfocar */
+    color: black; /* Cambiar color de texto a negro */
+    transition: 250ms background ease-in; /* Transición suave para el fondo */
+  }
+}
+
+/* Estilo para el enlace de "¿Olvidó su contraseña?" */
+.login-forgot-pass {
+    bottom: 0;
+    color: white;
+    cursor: pointer;
+    display: block;
+    font-size: 75%;
+    left: 0;
+    opacity: 0.6;
+    padding: .5rem;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+
+    &:hover {
+    opacity: 1;
+    }
+}
+
+
+/* Estilo para el botón de enviar */
+.login-submit {
+  border: 1px solid white; /* Borde blanco */
+  background: transparent; /* Fondo transparente */
+  color: white; /* Color del texto */
+  display: block; /* Mostrar como bloque */
+  margin: 1rem auto; /* Margen automático y vertical */
+  min-width: 1px; /* Ancho mínimo */
+  padding: .25rem; /* Relleno interno */
+  transition: 250ms background ease-in; /* Transición suave para el fondo */
+
+  /* Cambiar fondo y color al pasar el mouse o enfocar */
+  &:hover, &:focus {
+    background: white; /* Cambiar fondo a blanco */
+    color: black; /* Cambiar texto a negro */
+    transition: 250ms background ease-in; /* Transición suave para el fondo */
+  }
+}
+
+/* Estilos para el fondo y la capa del formulario */
+[class*=underlay] {
+  left: 0; /* Alinear a la izquierda */
+  min-height: 100%; /* Altura mínima completa */
+  min-width: 100%; /* Ancho mínimo completo */
+  position: fixed; /* Posición fija */
+  top: 0; /* Alinear en la parte superior */
+}
+
+/* Estilo para la imagen de fondo con animación */
+.underlay-photo {
+  animation: hue-rotate 6s infinite; /* Animación de rotación de matiz */
+  background: url('https://31.media.tumblr.com/41c01e3f366d61793e5a3df70e46b462/tumblr_n4vc8sDHsd1st5lhmo1_1280.jpg'); /* URL de la imagen de fondo */
+  background-size: cover; /* Cubrir todo el fondo */
+  -webkit-filter: grayscale(30%) hue-rotate(0deg); /* Filtro en escala de grises */
+  filter: grayscale(30%) hue-rotate(0deg); /* Propiedad estándar para compatibilidad */
+  z-index: -1; /* Colocar detrás de otros elementos */
+}
+
+/* Estilo para la capa negra sobre el fondo */
+.underlay-black {
+  background: rgba(0,0,0,0.7); /* Fondo negro semi-transparente */
+  z-index: -1; /* Colocar detrás de otros elementos */
+}
+
+/* Animaciones definidas para cambiar el matiz */
+@keyframes hue-rotate {
+    from {
+    -webkit-filter: grayscale(30%) hue-rotate(0deg); /* Al inicio */
+    }
+    to {
+    -webkit-filter: grayscale(30%) hue-rotate(360deg); /* Al final */
+    }
+}

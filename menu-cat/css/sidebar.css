@@ -1,0 +1,52 @@
+/* Sidebar styles */
+.full-box.nav-lateral {
+    width: 250px;
+    position: fixed;
+    height: 100%;
+    background-color: #FFFFFF;
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
+    z-index: 1000;
+}
+.full-box.nav-lateral.show-nav-lateral {
+    transform: translateX(0);
+}
+.full-box.nav-lateral-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+}
+.full-box.nav-lateral-bg.show-nav-lateral {
+    display: block;
+}
+.full-box.nav-lateral-content {
+    padding: 20px;
+}
+.full-box.nav-lateral-avatar img {
+    border-radius: 50%;
+    width: 100px;
+}
+.full-box.nav-lateral-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+.full-box.nav-lateral-menu a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 10px 15px;
+    transition: background 0.3s ease;
+}
+.full-box.nav-lateral-menu a:hover {
+    background-color: #f0f0f0;
+}
+.full-box.nav-lateral-menu .nav-btn-submenu ul {
+    display: none;
+}
+.full-box.nav-lateral-menu .nav-btn-submenu:hover ul {
+    display: block;
+}

@@ -1,0 +1,613 @@
+<html><head><base href="https://www.Allexclusive7.com/catalogo">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo | Allexclusive7</title>
+<style>
+  :root {
+    --primary-color: #f8f8f8;
+    --secondary-color: #1c1c1c;
+    --accent-color: #d4af37;
+    --text-color: #333333;
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Montserrat', sans-serif;
+  }
+  
+  body {
+    font-family: var(--font-sans);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-color);
+  }
+  
+  header {
+    background-color: var(--secondary-color);
+    padding: 1rem 0;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .logo {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .nav-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: var(--accent-color);
+  }
+  
+  .instagram-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--primary-color);
+    transition: fill 0.3s ease;
+  }
+
+  .instagram-icon:hover svg {
+    fill: var(--accent-color);
+  }
+  
+  main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  h1 {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #f8f8f8;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .filter-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .filter-group label {
+    margin-bottom: 0.25rem;
+  }
+  
+  .filter-group select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .product-card:hover {
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  .product-image {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .product-image img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+  
+  .product-card:hover .product-image img {
+    transform: scale(1.05);
+  }
+  
+  .quick-view {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.7);
+    color: white;
+    text-align: center;
+    padding: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .product-card:hover .quick-view {
+    opacity: 1;
+  }
+
+  .product-info {
+    padding: 1rem 0;
+    text-align: center;
+  }
+  
+  .product-name {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .product-price {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+  }
+  
+  .pagination button {
+    background-color: transparent;
+    border: 1px solid #ccc;
+    color: #333;
+    padding: 0.5rem 1rem;
+    margin: 0 0.25rem;
+    cursor: pointer;
+  }
+  
+  .pagination button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .page-numbers {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .page-numbers span {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+  }
+  
+  .page-numbers span.active {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+  }
+  
+  #instagram-feed {
+    margin-top: 2rem;
+  }
+
+  #instagram-posts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .instagram-post {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+  }
+
+  .instagram-post img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .instagram-post:hover img {
+    transform: scale(1.05);
+  }
+
+  .instagram-post .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .instagram-post:hover .caption {
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    #instagram-posts {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    #instagram-posts {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 1200px) {
+    .product-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .product-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .product-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="logo">Allexclusive7</a>
+      <div class="nav-links">
+        <a href="/catalogo">Catálogo</a>
+        <a href="/new-arrivals">Novedades</a>
+        <a href="/promotions">Promociones</a>
+        <a href="/account">Mi Cuenta</a>
+        <a href="/cart">Carrito</a>
+        <a href="https://www.instagram.com/allexclusive7" target="_blank" class="instagram-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Catálogo de Productos</h1>
+
+    <form id="search-form">
+      <input type="search" id="search-input" placeholder="Buscar productos...">
+      <button type="submit">Buscar</button>
+    </form>
+
+    <div class="filters">
+      <div class="filter-group">
+        <label for="category">Categoría:</label>
+        <select id="category">
+          <option value="all">Todas</option>
+          <option value="clothing">Ropa</option>
+          <option value="shoes">Zapatos</option>
+          <option value="accessories">Accesorios</option>
+          <option value="bags">Bolsos</option>
+          <option value="watches">Relojes</option>
+          <option value="jewelry">Joyería</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="gender">Género:</label>
+        <select id="gender">
+          <option value="all">Todos</option>
+          <option value="men">Hombre</option>
+          <option value="women">Mujer</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="price">Precio:</label>
+        <select id="price">
+          <option value="all">Todos</option>
+          <option value="0-500">$0 - $500</option>
+          <option value="500-1000">$500 - $1000</option>
+          <option value="1000-5000">$1000 - $5000</option>
+          <option value="5000">$5000+</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="brand">Marca:</label>
+        <select id="brand">
+          <option value="all">Todas</option>
+          <option value="gucci">Gucci</option>
+          <option value="prada">Prada</option>
+          <option value="louis-vuitton">Louis Vuitton</option>
+          <option value="chanel">Chanel</option>
+          <option value="hermes">Hermès</option>
+          <option value="dior">Dior</option>
+          <option value="burberry">Burberry</option>
+          <option value="fendi">Fendi</option>
+          <option value="balenciaga">Balenciaga</option>
+          <option value="versace">Versace</option>
+          <option value="yves-saint-laurent">Yves Saint Laurent</option>
+          <option value="valentino">Valentino</option>
+          <option value="cartier">Cartier</option>
+          <option value="tiffany">Tiffany & Co.</option>
+          <option value="bvlgari">Bvlgari</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="sort">Ordenar por:</label>
+        <select id="sort">
+          <option value="featured">Destacados</option>
+          <option value="price-low-high">Precio: Menor a Mayor</option>
+          <option value="price-high-low">Precio: Mayor a Menor</option>
+          <option value="newest">Más Nuevos</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="view">Vista:</label>
+        <select id="view">
+          <option value="grid">Cuadrícula</option>
+          <option value="list">Lista</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="product-grid" id="product-grid">
+      <!-- Product cards will be dynamically inserted here -->
+    </div>
+
+    <div class="pagination">
+      <button id="prev-page" disabled>❮</button>
+      <div class="page-numbers" id="page-numbers">
+        <!-- Page numbers will be dynamically inserted here -->
+      </div>
+      <button id="next-page">❯</button>
+    </div>
+
+    <section id="instagram-feed">
+      <h2>Síguenos en Instagram</h2>
+      <div id="instagram-posts"></div>
+    </section>
+  </main>
+
+  <script>
+    function generateProducts(count) {
+      const brands = ['Gucci', 'Prada', 'Louis Vuitton', 'Chanel', 'Hermès', 'Dior', 'Burberry', 'Fendi', 'Balenciaga', 'Versace', 'Yves Saint Laurent', 'Valentino', 'Cartier', 'Tiffany & Co.', 'Bvlgari'];
+      const categories = ['clothing', 'shoes', 'accessories', 'bags', 'watches', 'jewelry'];
+      const genders = ['men', 'women'];
+      const products = [];
+
+      for (let i = 0; i < count; i++) {
+        const gender = genders[Math.floor(Math.random() * genders.length)];
+        products.push({
+          name: `${brands[Math.floor(Math.random() * brands.length)]} ${categories[Math.floor(Math.random() * categories.length)]}`,
+          price: Math.floor(Math.random() * 10000) + 100,
+          image: `https://source.unsplash.com/random/400x500/?${categories[Math.floor(Math.random() * categories.length)]},luxury,${gender}`,
+          description: `Luxury ${categories[Math.floor(Math.random() * categories.length)]} for ${gender} from ${brands[Math.floor(Math.random() * brands.length)]}.`,
+          category: categories[Math.floor(Math.random() * categories.length)],
+          brand: brands[Math.floor(Math.random() * brands.length)].toLowerCase().replace(' ', '-'),
+          gender: gender
+        });
+      }
+
+      return products;
+    }
+
+    const products = generateProducts(800);
+    
+    let currentPage = 1;
+    const productsPerPage = 8;
+
+    function applyFilters(products) {
+      const categoryFilter = document.getElementById('category').value;
+      const priceFilter = document.getElementById('price').value;
+      const brandFilter = document.getElementById('brand').value;
+      const genderFilter = document.getElementById('gender').value;
+      const sortOption = document.getElementById('sort').value;
+
+      let filteredProducts = products.filter(product => {
+        if (categoryFilter !== 'all' && product.category !== categoryFilter) return false;
+        if (brandFilter !== 'all' && product.brand !== brandFilter) return false;
+        if (genderFilter !== 'all' && product.gender !== genderFilter) return false;
+        if (priceFilter !== 'all') {
+          const [min, max] = priceFilter.split('-').map(Number);
+          if (max) {
+            if (product.price < min || product.price > max) return false;
+          } else {
+            if (product.price < min) return false;
+          }
+        }
+        return true;
+      });
+
+      filteredProducts.sort((a, b) => {
+        switch (sortOption) {
+          case 'price-low-high':
+            return a.price - b.price;
+          case 'price-high-low':
+            return b.price - a.price;
+          case 'newest':
+            return Math.random() - 0.5;
+          default:
+            return 0;
+        }
+      });
+
+      return filteredProducts;
+    }
+
+    function renderProducts(page) {
+      const filteredProducts = applyFilters(products);
+      const startIndex = (page - 1) * productsPerPage;
+      const endIndex = startIndex + productsPerPage;
+      const productGrid = document.getElementById('product-grid');
+      productGrid.innerHTML = '';
+
+      for (let i = startIndex; i < endIndex && i < filteredProducts.length; i++) {
+        const product = filteredProducts[i];
+        const productCard = document.createElement('div');
+        productCard.className = 'product-card';
+        productCard.innerHTML = `
+          <div class="product-image">
+            <img src="${product.image}" alt="${product.name}">
+            <div class="quick-view">Vista rápida</div>
+          </div>
+          <div class="product-info">
+            <h2 class="product-name">${product.name}</h2>
+            <p class="product-price">$${product.price.toLocaleString()}</p>
+          </div>
+        `;
+        productGrid.appendChild(productCard);
+      }
+
+      updatePaginationButtons(filteredProducts.length);
+    }
+
+    function updatePaginationButtons(totalProducts) {
+      const prevButton = document.getElementById('prev-page');
+      const nextButton = document.getElementById('next-page');
+      const pageNumbers = document.getElementById('page-numbers');
+      const totalPages = Math.ceil(totalProducts / productsPerPage);
+
+      prevButton.disabled = currentPage === 1;
+      nextButton.disabled = currentPage === totalPages;
+
+      pageNumbers.innerHTML = '';
+      for (let i = 1; i <= totalPages; i++) {
+        const pageSpan = document.createElement('span');
+        pageSpan.textContent = i;
+        pageSpan.className = i === currentPage ? 'active' : '';
+        pageSpan.addEventListener('click', () => {
+          currentPage = i;
+          renderProducts(currentPage);
+        });
+        pageNumbers.appendChild(pageSpan);
+      }
+    }
+
+    document.getElementById('category').addEventListener('change', () => {
+      currentPage = 1;
+      renderProducts(currentPage);
+    });
+
+    document.getElementById('gender').addEventListener('change', () => {
+      currentPage = 1;
+      renderProducts(currentPage);
+    });
+
+    document.getElementById('price').addEventListener('change', () => {
+      currentPage = 1;
+      renderProducts(currentPage);
+    });
+
+    document.getElementById('brand').addEventListener('change', () => {
+      currentPage = 1;
+      renderProducts(currentPage);
+    });
+
+    document.getElementById('sort').addEventListener('change', () => {
+      currentPage = 1;
+      renderProducts(currentPage);
+    });
+
+    document.getElementById('view').addEventListener('change', (e) => {
+      const productGrid = document.getElementById('product-grid');
+      if (e.target.value === 'list') {
+        productGrid.style.gridTemplateColumns = '1fr';
+      } else {
+        productGrid.style.gridTemplateColumns = 'repeat(auto-fill, minmax(250px, 1fr))';
+      }
+    });
+
+    document.getElementById('search-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const searchTerm = document.getElementById('search-input').value.toLowerCase();
+      const filteredProducts = products.filter(product => 
+        product.name.toLowerCase().includes(searchTerm) || 
+        product.description.toLowerCase().includes(searchTerm)
+      );
+      currentPage = 1;
+      renderProducts(currentPage);
+    });
+
+    document.getElementById('prev-page').addEventListener('click', () => {
+      if (currentPage > 1) {
+        currentPage--;
+        renderProducts(currentPage);
+      }
+    });
+
+    document.getElementById('next-page').addEventListener('click', () => {
+      const filteredProducts = applyFilters(products);
+      const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+      if (currentPage < totalPages) {
+        currentPage++;
+        renderProducts(currentPage);
+      }
+    });
+
+    function fetchInstagramPosts() {
+      const posts = [
+        { image: 'https://source.unsplash.com/random/800x800/?fashion', caption: 'Nueva colección de verano #Allexclusive7' },
+        { image: 'https://source.unsplash.com/random/800x800/?luxury', caption: 'Descubre nuestras piezas exclusivas #LuxuryFashion' },
+        { image: 'https://source.unsplash.com/random/800x800/?accessories', caption: 'Accesorios que complementan tu estilo #FashionAccessories' },
+        { image: 'https://source.unsplash.com/random/800x800/?shoes', caption: 'Zapatos de diseñador para cada ocasión #DesignerShoes' },
+        { image: 'https://source.unsplash.com/random/800x800/?handbag', caption: 'Bolsos de lujo para cada estilo #LuxuryBags' },
+        { image: 'https://source.unsplash.com/random/800x800/?jewelry', caption: 'Joyas que hacen la diferencia #LuxuryJewelry' }
+      ];
+
+      const instagramPosts = document.getElementById('instagram-posts');
+      instagramPosts.innerHTML = '';
+
+      posts.forEach(post => {
+        const postElement = document.createElement('div');
+        postElement.className = 'instagram-post';
+        postElement.innerHTML = `
+          <img src="${post.image}" alt="Instagram post">
+          <p class="caption">${post.caption}</p>
+        `;
+        instagramPosts.appendChild(postElement);
+      });
+    }
+
+    fetchInstagramPosts();
+
+    // Initial render
+    renderProducts(currentPage);
+  </script>
+</body>
+</html>

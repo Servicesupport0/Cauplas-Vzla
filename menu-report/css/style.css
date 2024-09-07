@@ -1,0 +1,664 @@
+/* Definición de la fuente Verdana */
+@font-face {
+    font-family: 'Verdana'; /* Nombre de la fuente */
+    src: local('Verdana'), local('Verdana Regular'), local('Verdana'); /* Carga de la fuente localmente */
+    font-weight: normal; /* Peso de la fuente normal */
+    font-style: normal; /* Estilo de fuente normal */
+}
+
+/* Variables de color definidas en la raíz */
+:root {
+    --color-one: #F5F5F5; /* Color de fondo principal */
+    --color-two: #24292E; /* Color secundario */
+    --color-three: #0366D6; /* Color de acento */
+
+    --form-color: #14111A; /* Color para formularios */
+
+    --accent-color: #455A64; /* Color de acentos */
+    --border-color: #D8D8D8; /* Color del borde */
+}
+
+/* Estilos generales para body y html */
+body, html {
+    font-family: 'Verdana', sans-serif; /* Fuente de texto */
+    width: 100vw; /* Ancho completo de la ventana */
+    height: 100vh; /* Alto completo de la ventana */
+    background-color: var(--color-one); /* Color de fondo */
+    color: #333; /* Color del texto */
+    font-size: 16px; /* Tamaño de fuente base */
+}
+
+/* Clases para contenedores de caja */
+.full-box{
+    margin: 0; /* Sin margenes */
+    padding: 0; /* Sin padding */
+    box-sizing: border-box; /* Incluir el padding y el borde en el total del ancho y alto */
+    width: 100%; /* Ancho completo */
+}
+
+/* Estilos para formularios con efecto neon */
+.form-neon{
+    border: 1px solid var(--border-color); /* Borde */
+    background-color: #FFF; /* Color de fondo blanco */
+    padding: 15px; /* Espaciado interno */
+    border-radius: 3px; /* Bordes redondeados */
+}
+
+/* Estilos para formularios de avatar en radio */
+.radio-avatar-form{
+    padding: 30px 7px; /* Espaciado interno */
+}
+.img-avatar-form{
+    max-width: 100px; /* Tamaño máximo de la imagen de avatar */
+}
+
+/* --------  Scrolls -------- */
+.scroll::-webkit-scrollbar{
+    width: 8px; /* Ancho de la barra de desplazamiento */
+}
+.scroll::-webkit-scrollbar-thumb{
+    background: rgba(102,107,122,1); /* Color del "pulgar" de la barra */
+}
+.scroll::-webkit-scrollbar-thumb:active,
+.scroll::-webkit-scrollbar-thumb:hover{
+    background: rgba(102,107,122,1); /* Color al pasar el mouse o al hacer clic */
+}
+.scroll::-webkit-scrollbar-track{
+    background: rgba(29, 30, 34, 1); /* Color de la pista de desplazamiento */
+}
+.scroll::-webkit-scrollbar-track:hover, 
+.scroll::-webkit-scrollbar-track:active{
+    background: rgba(29, 30, 34, 1); /* Color al pasar el mouse o al hacer clic en la pista */
+}
+
+/*----------  Estilos para los encabezados de página  ----------*/
+.page-header{
+    padding: 30px 20px 60px 20px; /* Espaciado interno */
+}
+.page-header > :nth-child(1){
+    padding-bottom: 7px; /* Espaciado inferior */
+}
+.page-header > :nth-child(2){
+    font-size: 18px; /* Tamaño de fuente para el segundo hijo */
+}
+
+/*----------  Estilos para pestañas de navegación  ----------*/
+.page-nav-tabs{
+    display: flex; /* Usar flexbox para disposición */
+    justify-content: center; /* Centrar contenido */
+    flex-wrap: wrap; /* Permitir el ajuste del contenido */
+    margin-bottom: 30px; /* Margen inferior */
+}
+.page-nav-tabs li,
+.page-nav-tabs li a{
+    height: 40px; /* Altura de las pestañas */
+    line-height: 40px; /* Alinear el texto verticalmente */
+}
+.page-nav-tabs li{
+    margin: 5px 20px; /* Margenes de los elementos de la lista */
+}
+.page-nav-tabs li a{
+    color: var(--accent-color); /* Color del texto */
+    font-size: 17px; /* Tamaño de fuente */
+    min-width: 200px; /* Ancho mínimo */
+    width: auto; /* Ancho automático */
+    display: block; /* Convertir a bloque */
+    text-align: center; /* Alinear texto al centro */
+    user-select: none; /* Deshabilitar la selección de texto */
+    transition: all .2s ease-in-out; /* Transición suave */
+    border-bottom: 2px solid transparent; /* Borde inferior transparente */
+}
+.page-nav-tabs li a.active{
+    color: var(--color-three); /* Color activo */
+    cursor: none; /* Deshabilitar cursor en estado activo */
+    pointer-events: none; /* Deshabilitar eventos de puntero */
+}
+.page-nav-tabs li a:hover{
+    text-decoration: none; /* Sin decoración de subrayado */
+    color: #333; /* Color de texto al pasar el mouse */
+    border-bottom: 2px solid #333; /* Borde inferior al pasar el mouse */
+}
+
+/*----------  Estilos para la página 404  ----------*/
+.container-404{
+    background: #000428; /* Color de fondo negro */
+    background: linear-gradient(to right, #004e92, #000428); /* Gradiente de fondo */
+    color: #fff; /* Color del texto */
+    height: 100%; /* Altura completa */
+    display: flex; /* Usar flexbox para disposición */
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+}
+
+/*----------  Estilos personalizados para bootstrap  ----------*/
+.form-control[readonly]{
+    background-color: transparent; /* Fondo transparente para campos de solo lectura */
+}
+.form-control:focus,
+.form-control:active{
+    outline: none; /* Sin contorno al enfocar o activar */
+    box-shadow: none; /* Sin sombra de caja */
+    border: none; /* Sin borde */
+}
+.form-control-file:active,
+.form-control-file:focus{
+    outline: none; /* Sin contorno al enfocar o activar */
+}
+.table .btn{
+    margin-bottom: 0; /* Sin margen en la parte inferior de los botones */
+}
+.table thead th{
+    color: #FFF; /* Color de texto en el encabezado de la tabla */
+}
+.table tbody tr{
+    color: #333; /* Color de texto en el cuerpo de la tabla */
+    transition: all .2s ease-in-out; /* Transición suave */
+}
+.table-dark,
+.table{
+    background-color: #fff; /* Color de fondo blanco para tablas */
+}
+.table-dark{
+    border: 1px solid var(--accent-color); /* Borde para tablas oscuras */
+}
+.table-dark thead tr{
+    background-color: var(--accent-color); /* Fondo para encabezados en tablas oscuras */
+}
+.table-dark td,
+.table-dark thead th,
+.table-dark th{
+    border: none; /* Sin borde en celdas y encabezados */
+}
+.table-dark tbody tr:hover{
+    color: var(--color-three); /* Color al pasar el mouse */
+    background-color: #F5F5F5; /* Color de fondo al pasar el mouse */
+    font-weight: bold; /* Negrita en texto al pasar el mouse */
+}
+.page-link{
+    transition: all .2s ease-in-out; /* Transición suave para enlaces de página */
+}
+.page-link:hover,
+.page-link.active{
+    background-color: var(--color-three); /* Color de fondo al pasar el mouse o al estar activo */
+    color: #FFF; /* Color del texto en estado activo o hover */
+}
+table form{
+    margin-bottom: 0; /* Sin margen en la parte inferior de formularios en tablas */
+}
+
+/*----------  Estilos de texto ----------*/
+.roboto-medium{
+    font-family: 'roboto_medium_regular'; /* Fuente Roboto Medium */
+}
+.roboto-condensed-light{
+    font-family: 'roboto_condensed_light'; /* Fuente Roboto Condensed Light */
+}
+.roboto-condensed-regular{
+    font-family: 'roboto_condensed_regular'; /* Fuente Roboto Condensed Regular */
+}
+
+/*----------  Estilos de inicio de sesión ----------*/
+.login-container{
+    width: 100vw; /* Ancho completo */
+    height: 100vh; /* Alto completo */
+    display: flex; /* Usar flexbox para disposición */
+    justify-content: center; /* Centrar el contenido horizontalmente */
+    align-items: center; /* Centrar el contenido verticalmente */
+    background: #43C6AC; /* Color de fondo */
+    background: -webkit-linear-gradient(to right, #191654, #43C6AC); /* Gradiente de fondo */
+    background: linear-gradient(to right, #191654, #43C6AC); /* Gradiente de fondo */
+}
+.login-content{
+    width: 95%; /* Ancho al 95% */
+    max-width: 320px; /* Ancho máximo de 320px */
+    height: auto; /* Altura automática */
+    border: 1px solid var(--border-color); /* Borde */
+    background-color: #FFF; /* Color de fondo blanco */
+    border-radius: 4px; /* Bordes redondeados */
+    padding: 15px; /* Espaciado interno */
+    color: var(--accent-color); /* Color de texto */
+}
+.btn-login{
+    width: 90%; /* Ancho del botón */
+    padding: 10px 0; /* Espaciado interno */
+    display: block; /* Convertir a bloque */
+    margin: 0 auto; /* Centrar horizontalmente */
+    border-radius: 3px; /* Bordes redondeados */
+    margin-top: 30px; /* Margen superior */
+    background-color: transparent; /* Fondo transparente */
+    color: var(--accent-color); /* Color de texto del botón */
+    border: 1px solid var(--accent-color); /* Borde del botón */
+    transition: all .2s ease-out; /* Transición suave */
+}
+.btn-login:hover{
+    background-color: var(--color-three); /* Fondo al pasar el mouse */
+    border: 1px solid var(--color-three); /* Borde al pasar el mouse */
+    text-decoration: none; /* Sin decoración de subrayado al pasar el mouse */
+    color: #fff; /* Color de texto al pasar el mouse */
+}
+.btn-login:active,
+.btn-login:focus{
+    outline: none; /* Sin contorno en estado activo o de enfoque */
+}
+
+/*----------  Estilos del diseño de página ----------*/
+.main-container{
+    height: 100%; /* Altura completa */
+    position: absolute; /* Posicionamiento absoluto */
+    top: 0; /* Alineado arriba */
+    left: 0; /* Alineado a la izquierda */
+    overflow: hidden; /* Sin desbordamiento */
+}
+.page-content,
+.nav-lateral{
+    height: 100%; /* Altura completa */
+    overflow: hidden; /* Sin desbordamiento */
+}
+.page-content,
+.nav-lateral-content{
+    overflow: auto; /* Habilitar desplazamiento automático */
+}
+.page-content{
+    position: relative; /* Posicionamiento relativo */
+    padding-left: 270px; /* Espaciado izquierdo */
+    transition: all .2s ease-in-out; /* Transición suave */
+    padding-bottom: 20px; /* Espaciado inferior */
+}
+
+/*  Navegación lateral */
+.nav-lateral{
+    width: 270px; /* Ancho de la barra lateral */
+    position: absolute; /* Posicionamiento absoluto */
+    top: 0; /* Alineado arriba */
+    left: 0; /* Alineado a la izquierda */
+    z-index: 1; /* Colocarlo sobre otros elementos */
+    transition: all .2s ease-in-out; /* Transición suave */
+    background-image: url('assets/img/tumblr.png'); /* Imagen de fondo */
+    background-position: center center; /* Posicionar imagen de fondo al centro */
+    background-size: cover; /* Cubrir todo el área */
+}
+.nav-lateral-bg{ display: none; } /* Ocultar el fondo de la barra lateral por defecto */
+.nav-lateral-content{
+    max-width: 270px; /* Ancho máximo */
+    height: 100%; /* Altura completa */
+    background-color: var(--color-two); /* Color de fondo */
+    background-color: #143c90 ; /* Color de fondo semi-transparente */
+    overflow-y: scroll; /* Desplazamiento vertical */
+    padding-bottom: 50px; /* Espaciado inferior */
+}
+.nav-lateral-bar{
+    height: 3px; /* Altura de la barra lateral */
+    background-color: var(--color-three); /* Color de la barra lateral */
+}
+.nav-lateral-avatar{
+    padding: 40px 0; /* Espaciado interno */
+}
+.nav-lateral-avatar i{
+    display: none; /* Ocultar icono del avatar */
+}
+.nav-lateral-avatar img{
+    width: 50%; /* Ancho de la imagen del avatar */
+    margin: 0 auto; /* Centrar imagen */
+    display: block; /* Convertir a bloque */
+    border: 4px solid #FFF; /* Borde blanco */
+    border-radius: 100%; /* Hacer la imagen circular */
+}
+.nav-lateral-avatar figcaption{
+    margin-top: 20px; /* Margen superior */
+    color: #FFF; /* Color del texto */
+}
+.nav-lateral-menu{
+    height: auto; /* Altura automática */
+}
+.nav-lateral-menu ul{
+    margin: 0; /* Sin margen */
+    padding: 0; /* Sin padding */
+    list-style: none; /* Sin viñetas */
+}
+.nav-lateral-menu ul li{
+    width: 100%; /* Ancho completo */
+    height: auto; /* Altura automática */
+}
+.nav-lateral-menu ul li a{
+    display: block; /* Convertir a bloque */
+    width: 100%; /* Ancho completo */
+    height: 45px; /* Altura de los enlaces */
+    line-height: 45px; /* Alinear texto verticalmente */
+    text-decoration: none; /* Sin decoración de subrayado */
+    color: #FFF; /* Color del texto */
+    font-size: 15px; /* Tamaño de fuente */
+    box-sizing: border-box; /* Incluir padding y borde en el total del ancho y alto */
+    padding-left: 20px; /* Espaciado izquierdo */
+    transition: all .2s ease-in-out; /* Transición suave */
+}
+.nav-lateral-menu ul li a.active{
+    color: #FFF; /* Color del texto activo */
+    background-color: var(--color-three); /* Fondo activo */
+}
+.nav-lateral-menu ul li a:hover{
+    color: #fff; /* Color del texto al pasar el mouse */
+    background-image: linear-gradient(to right, transparent, rgba(255, 255, 255, .1) 50%, transparent); /* Fondo de degradado */
+}
+.nav-lateral-menu ul li ul{
+    display: none; /* Ocultar submenús por defecto */
+    border: 1px solid var(--color-three); /* Borde para submenús */
+    background: rgba(20, 30, 48, .5); /* Color de fondo semi-transparente para submenús */
+}
+.nav-lateral-menu ul li ul a{
+    padding-left: 35px; /* Espaciado izquierdo en submenús */
+}
+.show-nav-lateral-submenu{
+    display: block !important; /* Mostrar submenús */
+}
+.nav-lateral-menu .fa-chevron-down,
+.nav-lateral-menu .fa-chevron-up{
+    float: right; /* Alinear a la derecha */
+    height: 45px; /* Altura */
+    line-height: 45px; /* Alinear texto verticalmente */
+    margin-right: 7px; /* Margen derecho */
+    transition: all .2s ease-in-out; /* Transición suave */
+}
+
+/*  Contenido de la página */
+.navbar-info{
+    height: 50px; /* Altura de la barra de navegación */
+    border-bottom: 1px solid var(--border-color); /* Borde inferior */
+    text-align: right; /* Alinear texto a la derecha */
+    padding-right: 10px; /* Espaciado derecho */
+}
+
+.navbar-info a{
+    color: var(--accent-color); /* Color del texto */
+    height: 50px; /* Altura de los enlaces */
+    min-width: 40px; /* Ancho mínimo */
+    text-align: center; /* Alinear texto al centro */
+    line-height: 50px; /* Alinear texto verticalmente */
+    display: inline-block; /* Convertir a bloque en línea */
+    transition: all .2s ease-out; /* Transición suave */
+    user-select: none; /* Deshabilitar la selección de texto */
+}
+.navbar-info a:hover{
+    color: var(--color-three); /* Color del texto al pasar el mouse */
+    background-image: radial-gradient(circle,rgba(250, 30, 78, .1), transparent 80%); /* Fondo al pasar el mouse */
+}
+.navbar-info a:active,
+.navbar-info a:focus{
+    outline: none; /* Sin contorno en estado activo o de enfoque */
+}
+
+/*----------  Estilos de inicio de sesión  ----------*/
+.table-dashboard{
+    background-color: #fff; /* Color de fondo blanco para tabla de dashboard */
+    color: #333; /* Color del texto */
+}
+.table-dashboard thead tr th{
+    color: #333; /* Color de texto en encabezado */
+    font-weight: bolder; /* Peso de fuente más fuerte */
+    text-transform: uppercase; /* Transformar a mayúsculas */
+}
+.tile-container{
+    text-align: center; /* Centrar texto */
+    padding: 20px 25px; /* Espaciado interno */
+}
+.tile{
+    height: 200px; /* Altura de los tiles */
+    width: 200px; /* Ancho de los tiles */
+    margin: 10px; /* Margen entre tiles */
+    display: inline-block; /* Convertir a bloque en línea */
+    text-decoration: none; /* Sin decoración de subrayado */
+    color: var(--accent-color); /* Color del texto */
+    border: 1px solid var(--border-color); /* Borde del tile */
+    border-radius: 3px; /* Bordes redondeados */
+    user-select: none; /* Deshabilitar la selección de texto */
+    transition: all .2s ease-in-out; /* Transición suave */
+    background-color: #FFF; /* Color de fondo blanco */
+}
+.tile:hover{
+    text-decoration: none; /* Sin decoración de subrayado al pasar el mouse */
+    border-color: var(--color-three); /* Cambiar borde al pasar el mouse */
+}
+.tile:focus,
+.tile:active{
+    outline: none; /* Sin contorno en estado activo o de enfoque */
+}
+.tile-tittle{
+    margin: 0; /* Sin margen */
+    width: 100%; /* Ancho completo */
+    padding: 0; /* Sin padding */
+    height: 40px; /* Altura */
+    line-height: 40px; /* Alinear texto verticalmente */
+    box-sizing: border-box; /* Incluir padding y borde en el total del ancho y alto */
+    text-transform: uppercase; /* Transformar a mayúsculas */
+    border-bottom: 1px solid var(--border-color); /* Borde inferior */
+    transition: all .2s ease-in-out; /* Transición suave */
+    font-family: 'roboto_medium_regular'; /* Fuente específica */
+}
+.tile:hover .tile-tittle{
+    color: #FFF; /* Color de texto en tile al pasar el mouse */
+    border-color: var(--color-three); /* Cambiar borde al pasar el mouse */
+    background-color: var(--color-three); /* Fondo al pasar el mouse */
+}
+.tile-icon{
+    width: 100%; /* Ancho completo */
+    height: 160px; /* Altura del icono */
+    box-sizing: border-box; /* Incluir padding y borde en el total del ancho y alto */
+    padding-top: 22px; /* Espaciado superior */
+}
+.tile-icon > i{
+    font-size: 80px; /* Tamaño del icono */
+}
+.tile-icon > p{
+    font-family: 'roboto_medium_regular'; /* Fuente específica para el texto */
+    height: 35px; /* Altura de texto */
+    line-height: 35px; /* Alinear texto verticalmente */
+}
+.tile:hover .tile-icon > i,
+.tile:hover .tile-icon > p{
+    color: var(--color-three); /* Cambiar color al pasar el mouse */
+}
+
+/*----------  Estilos de producto  ----------*/
+.product-container{
+    width: 100%; /* Ancho completo */
+    height: auto; /* Altura automática */
+    box-sizing: border-box; /* Incluir padding y borde en el total del ancho y alto */
+}
+.product-list,
+.product-category{
+    box-sizing: border-box; /* Incluir padding y borde en el total del ancho y alto */
+    background-color: #FFF; /* Color de fondo blanco */
+    border: 1px solid #E1E1E1; /* Borde */
+}
+.product-list{
+    width: calc(100% - 250px); /* Ancho de la lista de productos */
+    padding: 20px; /* Espaciado interno */
+}
+.product-category{
+    flex-grow: 0; /* Evitar que crezca */
+    width: 250px; /* Ancho de la categoría */
+}
+.product-category h5{
+    color: var(--color-three); /* Color del encabezado de categoría */
+    padding: 15px 0; /* Espaciado interno */
+    margin: 0; /* Sin margen */
+    border-bottom: 1px solid #E1E1E1; /* Borde inferior */
+}
+.product-category-list{
+    width: 100%; /* Ancho completo */
+    height: auto; /* Altura automática */
+}
+.product-category-list a{
+    padding: 10px 0; /* Espaciado superior e inferior */
+    border-left: 4px solid transparent; /* Borde izquierdo por defecto */
+    display: block; /* Convertir a bloque */
+    color: #333; /* Color del texto */
+    position: relative; /* Posicionar relativo */
+    transition: all .2s ease-in-out; /* Transición suave */
+}
+.product-category-list a:hover{
+    text-decoration: none; /* Sin decoración de subrayado al pasar el mouse */
+    color: var(--color-three); /* Cambiar color al pasar el mouse */
+    border-left: 4px solid var(--color-three); /* Cambiar borde izquierdo al pasar el mouse */
+    font-weight: bolder; /* Hacer negrita al pasar el mouse */
+}
+.img-product-list{
+    max-width: 160px; /* Tamaño máximo de la imagen del producto */
+    max-height: 160px; /* Tamaño máximo de la imagen del producto */
+    min-width: 100px; /* Tamaño mínimo de la imagen del producto */
+    min-height: 100px; /* Tamaño mínimo de la imagen del producto */
+    border-right: 1px solid #E1E1E1; /* Borde derecho */
+    display: block; /* Convertir a bloque */
+    margin: 0; /* Sin margen */
+    padding: 0; /* Sin padding */
+    margin-right: 0 !important; /* Sin margen derecho */
+    background-color: rgba(2, 133, 255, 0.05); /* Fondo semi-transparente */
+}
+.table-product{
+    width: 100%; /* Ancho completo de la tabla */
+}
+.table-product td{
+    padding: 9px 0; /* Espaciado interno de las celdas */
+}
+.form-product{
+    display: inline-block; /* Mostrar en línea */
+    margin: 0; /* Sin margen */
+}
+.media-product{
+    padding: 0; /* Sin padding */
+    background-color: #FFF; /* Color de fondo blanco */
+    border: 1px solid #E1E1E1; /* Borde */
+    margin-bottom: 25px; /* Margen inferior */
+}
+.media-product:hover{
+    background-color: rgba(2, 133, 255, 0.05); /* Cambiar fondo al pasar el mouse */
+}
+.product-media-body{
+    position: relative; /* Posicionamiento relativo */
+}
+.media-product-title{
+    color: var(--color-three); /* Color del título del producto */
+    padding: 5px; /* Espaciado interno */
+    margin: 0; /* Sin margen */
+    border-bottom: 1px solid #E1E1E1; /* Borde inferior */
+}
+.media-product-options{
+    border-top: 1px solid #E1E1E1; /* Borde superior */
+}
+
+/* Imagen de información del producto */
+.img-product-info{
+    max-width: 200px; /* Tamaño máximo de la imagen de información */
+    max-height: 200px; /* Tamaño máximo de la imagen de información */
+    display: block; /* Convertir a bloque */
+    margin: 0 auto; /* Centrar horizontalmente */
+    margin-bottom: 20px; /* Margen inferior */
+}
+
+/*----------  Estilos de venta  ----------*/
+.sale_input-cant{
+    width: 40px; /* Ancho del campo de cantidad */
+    margin: 0 auto; /* Centrar horizontalmente */
+    padding: 0; /* Sin padding */
+    padding-right: 0; /* Sin padding derecho */
+    height: auto; /* Altura automática */
+    text-align: center; /* Alinear texto al centro */
+}
+.btn-sale-options{
+    padding: 0; /* Sin padding */
+    width: 35px; /* Ancho del botón */
+    height: 35px; /* Altura del botón */
+    line-height: 35px; /* Alinear texto verticalmente */
+}
+
+/*----------  Breakpoints personalizados  ----------*/
+@media(max-width: 992px){ /* Para pantallas menores a 992px */
+    .nav-lateral{
+        width: 100%; /* Ancho completo */
+        overflow: hidden; /* Sin desbordamiento */
+        display: none; /* Ocultar por defecto */
+        background-image: none; /* Sin imagen de fondo en pantallas pequeñas */
+    }
+    .nav-lateral.active{
+        display: block; /* Mostrar cuando está activo */
+        z-index: 9999; /* Asegurar que esté arriba de otros elementos */
+    }
+    .nav-lateral-bg{
+        width: 100%; /* Ancho completo */
+        height: 100%; /* Alto completo */
+        background-color: rgba(3, 3, 3, .4); /* Fondo semi-transparente */
+        position: relative; /* Posicionamiento relativo */
+        display: block; /* Mostrar */
+        z-index: 2; /* Asegura que esté encima */
+    }
+    .nav-lateral-content{
+        position: absolute; /* Posicionado absolutamente */
+        left: 0; /* Alineado a la izquierda */
+        top: 0; /* Alineado arriba */
+        z-index: 3; /* Asegura que esté encima */
+        transform: translateX(-400px); /* Mover fuera de la vista */
+        transition: all .3s ease-in-out; /* Transición suave */
+        background-color: var(--color-two); /* Color de fondo */
+    }
+    .nav-lateral.active .nav-lateral-content{
+        transform: translateX(0); /* Regresar a la vista */
+    }
+    .nav-lateral-avatar i{
+        height: 50px; /* Altura del icono */
+        width: 50px; /* Ancho del icono */
+        line-height: 50px; /* Alinear texto verticalmente */
+        color: #FFF; /* Color del icono */
+        cursor: pointer; /* Cambiar cursor a mano */
+        font-size: 25px; /* Tamaño del icono */
+        position: absolute; /* Posicionamiento absoluto */
+        top: 5px; /* Alineado arriba */
+        right: 0; /* Alineado a la derecha */
+        text-align: center; /* Centrar texto */
+        display: block; /* Mostrar como bloque */
+        transition: all .2s ease-out; /* Transición suave */
+    }
+    .nav-lateral-avatar i:hover{
+        color: var(--color-three); /* Cambiar color al pasar el mouse */
+    }
+    .page-content{
+        padding-left: 0; /* Sin espaciado izquierdo */
+    }
+    .product-container{
+        flex-direction: column; /* Cambiar a disposición vertical */
+    }
+    .product-list{
+        padding: 15px; /* Espaciado interno */
+        width: 100%; /* Ancho completo */
+    }
+    .product-category{
+        flex-grow: 0; /* Evitar que crezca */
+        width: 100%; /* Ancho completo */
+    }
+}
+@media(min-width: 993px){ /* Para pantallas mayores a 993px */
+    .nav-lateral.active{
+        transform: translateX(-400px); /* Mover fuera de la vista */
+    }
+    .page-content.active{
+        padding-left: 0; /* Sin espaciado izquierdo */
+    }
+}
+@media(min-width: 1200px){ /* Para pantallas mayores a 1200px */
+    .col-product{
+        padding: 9px 0; /* Espaciado superior e inferior */
+        text-align: center; /* Alinear texto al centro */
+    }
+}
+
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Add your footer styles here */
+    background-color: #4b4949; /* Fondo oscuro */
+    color: #FFF; /* Texto blanco */
+    padding: 20px; /* Espaciado interno */
+    text-align: center; /* Alinear texto al centro */
+    clear: both; /* Limpiar floats */
+    /* Estilos del pie de página */
+}

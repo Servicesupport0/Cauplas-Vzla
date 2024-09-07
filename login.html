@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Normaliza el estilo básico de los navegadores -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- CSS de Bootstrap para estilos responsivos -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- CSS de Bootstrap Material Design -->
+    <link rel="stylesheet" href="css/bootstrap-material-design.min.css">
+    <!-- Iconos de Font Awesome -->
+    <link rel="stylesheet" href="css/all.css">
+    <!-- Estilos de Sweet Alerts -->
+    <link rel="stylesheet" href="css/sweetalert2.min.css">
+    <!-- Estilos generales de la página de login -->
+    <link rel="stylesheet" href="css/styles-login.css">
+    <!-- jQuery -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <!-- Otras librerías JavaScript -->
+    <script src="js/sweetalert2.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-material-design.min.js"></script>
+    <script src="js/snackbar.min.js"></script>
+    <script src="js/printThis.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/ajax.js"></script>
+    <script src="js/scripts.js"></script>
+</head>
+<body>
+    <form class="login-form" id="loginForm">
+        <p class="login-text">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-lock fa-stack-1x"></i>
+            </span>
+        </p>
+        <input type="text" id="UserName" class="login-username" autofocus required placeholder="Usuario" />
+        <input type="password" id="UserPassword" class="login-password" required placeholder="Contraseña" />
+        <input type="submit" value="Login" class="login-submit" />
+    </form>
+    <div class="underlay-photo"></div>
+    <div class="underlay-black"></div>
+
+    <script>
+        $(document).ready(function() {
+            $('body').bootstrapMaterialDesign(); // Inicializa Bootstrap Material Design
+        });
+    </script>
+</body>
+</html>
